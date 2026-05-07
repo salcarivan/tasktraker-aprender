@@ -1,27 +1,27 @@
 const moongose = require ('mongoose');
 
 const TaskSchema = new moongose.Schema({
-    title : {
+    titulo : {
         type: String,
         required: [true, 'El nombre de la tarea es obligatorio'],
         trim: true, // Elimina espacios al inicio y al final
         maxlength: [100, 'El titulo no puede tener más de 100 caracteres']
     }, 
-    description: {
+    descripcion: {
         type: String,
         trim: true,
-        maxlength: [500, 'La desc']
+        maxlength: [500, 'La descripción no puede tener más de 500 caracteres']
     },
-    status: {
+    estado: {
         type: [String],
         required: [true, 'El estado es obligatorio'],
         enum: {
-            values: ['backlog', 'planificada', 'ejecucion', 'validacion', 'finalizada'],
-            default: 'planificada',
+            values: ['pendiente', 'progresando', 'completada'],
+            default: 'pendiente',
             message: 'Estado no válido'
         }
     },
-    priority: {
+    prioridad: {
         type: [String],
         enum:{
             values:['baja', 'media', 'alta', 'critica'],
@@ -29,24 +29,8 @@ const TaskSchema = new moongose.Schema({
             message: 'Prioridad no válida'
         }
     },
-    progress: {
-        type: Number,
-        min: 0,
-        max: 100,
-        default: 0
-    },
-    tags: [
-        {
-            type: String,
-            trim: true,
-            lowercase: true
-        }
-    ],
-    dueDate: {
-        type: Date,
-    },
-    competedAt: {
-        type: Date, 
+    fechaLimite:{
+        type: Date
     }
 },{
     timestamps:true // Agrega automáticamente createdAt y updatedAt
