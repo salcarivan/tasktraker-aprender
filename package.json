@@ -7,15 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Iván Salas Carrascal",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.6.1"
-  },
-  "devDependencies": {
-    "demon": "^0.0.1"
   }
 }
